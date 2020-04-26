@@ -70,9 +70,9 @@ def save_to_csv(path_results, row):
 if __name__ == '__main__':
     """
     1. Si ha estado en mas de 1 hospital
-    2. Numero de pacientes con el que ha estado en contacto * 2%/ [Entre 200-100: 1, 100-75: 0.7, 50-75: 0.5]
-    3. Ha estado en quirofano? w = 0.1
-    4. Ha estado en una sala de espera? w = 0.5
+    2. Numero de pacientes con el que ha estado en contacto
+    3. Ha estado en quirofano?
+    4. Ha estado en una sala de espera?
     75121583H, 3, 580, 1, 1, XXX 
 
     """
