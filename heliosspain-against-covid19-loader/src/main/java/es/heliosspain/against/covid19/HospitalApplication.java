@@ -19,6 +19,7 @@ import org.springframework.data.neo4j.repository.config.EnableNeo4jRepositories;
 
 import java.time.Instant;
 import java.util.Arrays;
+import java.util.List;
 
 @SpringBootApplication
 @EnableNeo4jRepositories
@@ -82,17 +83,17 @@ public class HospitalApplication {
 
 			hasRepository.save(has1);
 
+			List<Doctor> andres = doctorRepository.findByName("Andres");
 
+			andres.stream().forEach(System.out::println);
 
+			List<Doctor> byTs = doctorRepository.findByTs(Instant.parse("2020-04-24T00:00:00.000Z"), Instant.parse("2020-04-28T00:00:00.000Z"));
 
+			byTs.stream().forEach(System.out::println);
 
+			List<Doctor> modelInformation = doctorRepository.getModelInformation(Instant.parse("2020-04-24T00:00:00.000Z"), Instant.parse("2020-04-28T00:00:00.000Z"));
 
-
-
-
-
-
-
+			System.exit(0);
 		};
 	}
 
