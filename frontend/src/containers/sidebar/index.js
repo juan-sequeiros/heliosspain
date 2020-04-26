@@ -13,36 +13,39 @@ import ueSvg from "./ue.svg";
 import "./style.scss";
 
 const paises = [
-    "Alemania",
+    "All",
     "Austria",
-    "Bélgica",
+    "Belgium",
     "Bulgaria",
-    "Chequia",
-    "Chipre",
-    "Croacia",
-    "Dinamarca",
-    "Eslovaquia",
-    "Eslovenia",
-    "España",
+    "Cyprus",
+    "Czech Republic",
+    "Denmark",
     "Estonia",
-    "Finlandia",
-    "Francia",
-    "Grecia",
-    "Hungría",
-    "Irlanda",
-    "Italia",
-    "Letonia",
-    "Lituania",
-    "Luxemburgo",
+    "Finland",
+    "France",
+    "Germany",
+    "Greece",
+    "Hungary",
+    "Ireland",
+    "Italy",
+    "Latvia",
+    "Lithuania",
+    "Luxembourg",
     "Malta",
-    "Países Bajos",
-    "Polonia",
+    "Netherlands",
+    "Poland",
     "Portugal",
-    "Rumanía",
-    "Suecia"
-];
+    "Romania",
+    "Slovakia",
+    "Slovenia",
+    "Spain",
+    "Sweden",
+    "United Kingdom",
 
-const hospitals = Array.from({ length: 10 }, (key, i) => "Hostpital " + i);
+];
+let hospitals = []
+hospitals.push("All");
+hospitals = hospitals.concat(Array.from({ length: 10 }, (key, i) => "Hostpital " + i));
 
 const Sidebar = ({ fetchData }) => {
 
@@ -73,7 +76,7 @@ const Sidebar = ({ fetchData }) => {
                 </div>
                 <div className="execution__hr" />
                 <p className="execution__info">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sapien augue, ultrices sit amet mi a, pellentesque tincidunt ex. Quisque facilisis, metus id mollis rhoncus.
+
                 </p>
                 <Form onSubmit={getData}>
                     <FormGroup>
@@ -82,6 +85,7 @@ const Sidebar = ({ fetchData }) => {
                             name="pais"
                             invalidText="This is an invalid error message."
                             labelText="Countries:"
+                            defaultValue="All"
                         >
                             {paises.map((pais) => {
                                 return (<SelectItem
@@ -94,7 +98,7 @@ const Sidebar = ({ fetchData }) => {
                     </FormGroup>
                     <FormGroup>
                         <Select
-                            defaultValue="placeholder-item"
+                            value="All"
                             id="hospital"
                             name="hospital"
                             invalidText="This is an invalid error message."

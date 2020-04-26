@@ -34,10 +34,13 @@ const App = () => {
         // Mock
         // setNodes(elements);
 
-        postData('http://35.228.138.176:8080/heliosspain-against/mocks', {})
+        //postData('http://35.228.138.176:8080/heliosspain-against/mocks', {})
+        //postData('http://localhost:4556/fetch', {})
+        postData('http://35.228.138.176:8080/heliosspain-against/getAllDataHospital', {})
             .then((data) => {
+                //console.log(data);
                 setNodes(data);
-                // setNodes(elements);
+                //setNodes(elements);
             }).catch(() => {
                 setNodes(elements);
             });

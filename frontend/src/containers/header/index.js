@@ -27,7 +27,7 @@ const HeaderApp = ({ selectedNode }) => {
                 icon = "fas fa-user-md";
                 break;
             case "nurse":
-                icon = "fas fa-nurse";
+                icon = "fas fa-user-nurse";
                 break;
             default:
                 icon = "fas fa-user";
@@ -80,7 +80,7 @@ const HeaderApp = ({ selectedNode }) => {
                         <div className="info__element">
                             <fieldset className="bx--fieldset">
                                 <legend className="bx--label">COVID-19 analysis:</legend>
-                                <span>Analizado</span>
+                                <span>{selectedNode.covid19 ? (selectedNode.covid19 + " %") : "Undiagnosed"}</span>
                             </fieldset>
                         </div>
                         <div className="info__element">

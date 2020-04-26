@@ -14,12 +14,6 @@ export default [
             "y": 20.7372431003224 // Position y de la bola en el grafo
         },
         "group": "nodes", // Dejarlo asi BOLA
-        "removed": false,// Cosas de front
-        "selected": false,// Cosas de front
-        "selectable": true,// Cosas de front
-        "locked": false,// Cosas de front
-        "grabbable": true,// Cosas de front
-        "classes": ""// Cosas de front
     },
     {
         "data": {
@@ -36,12 +30,6 @@ export default [
             "y": 229.70989985711336 // Position y de la bola en el grafo
         },
         "group": "nodes", // Dejarlo asi BOLA
-        "removed": false,// Cosas de front
-        "selected": false,// Cosas de front
-        "selectable": true,// Cosas de front
-        "locked": false,// Cosas de front
-        "grabbable": true,// Cosas de front
-        "classes": ""// Cosas de front
     },
     {
         "data": {
@@ -53,11 +41,5 @@ export default [
         },
         "position": {}, // Como es enlace nada 
         "group": "edges", // Dejarlo asi ENLACE
-        "removed": false, // Cosas de front
-        "selected": false, // Cosas de front
-        "selectable": true, // Cosas de front
-        "locked": false, // Cosas de front
-        "grabbable": true, // Cosas de front
-        "classes": "" // Cosas de front
     },
 ]
