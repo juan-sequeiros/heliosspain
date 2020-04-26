@@ -1,4 +1,7 @@
 import logging
+import pandas as pd
+from csv import writer
+import argparse
 
 
 def predict(weights, instance):
@@ -44,9 +47,24 @@ def pre_process(instance_):
 
     return instance
 
-def read_dataset():
-    instance = [['75121583H', 3, 580, 1, 1], ['EVA', 3, 50, 0, 1]]
-    return instance
+
+def read_dataset(path_file):
+    dataset = pd.read_csv(path_file, delimiter=',', header=None)
+    dataset = dataset.values.tolist()
+    return dataset
+
+
+def parse_arguments():
+    parser = argparse.ArgumentParser(description="Run Helios python model. -f data file path")
+    parser.add_argument("-f", "--file", type=str, help="filename")
+    args = parser.parse_args()
+    return args
+
+
+def save_to_csv(path_results, row):
+    with open(path_results, 'a+', newline='') as write_obj:
+        csv_writer = writer(write_obj)
+        csv_writer.writerow(row)
 
 
 if __name__ == '__main__':
@@ -58,12 +76,21 @@ if __name__ == '__main__':
     75121583H, 3, 580, 1, 1, XXX 
 
     """
-    logging.basicConfig(format='%(name)s - %(levelname)s - (%(funcName)s) -> %(message)s', level=logging.INFO)
+    logging.basicConfig(format='%(name)s - %(levelname)s - (%(funcName)s) -> %(message)s', level=logging.DEBUG)
 
-    weights = ['-',0.2, 0.5, 0.1, 0.2]
+    weights = ['-', 0.2, 0.5, 0.1, 0.2]
 
-    dataset = read_dataset()
+    args = parse_arguments()
+    path_file = args.file
+    logging.debug(f"Path file: {path_file}")
+    # path_file = '/Users/eva/Desktop/data.csv'
+    path_results = '/Users/eva/Desktop/res.csv'
+    dataset = read_dataset(path_file)
+    logging.debug(f"dataset: {dataset}")
+
     for instance_ in dataset:
+        logging.debug(f"Instance: {instance_}")
         instance = pre_process(instance_)
         logging.info(f"Pre processed instance{instance}")
-        predict(weights, instance)
+        y_ = predict(weights, instance)
+        save_to_csv(path_results, [instance[0], y_])

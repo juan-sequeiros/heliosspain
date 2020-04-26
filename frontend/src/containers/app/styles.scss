@@ -1,0 +1,33 @@
+@import '~@carbon/themes/scss/themes';
+@import '~carbon-components/scss/globals/scss/styles.scss';
+
+@include carbon--theme($carbon--theme--white);
+
+.container{
+    width: 100%;
+    height: calc(100vh - 64px);
+}
+
+#main-content{
+    height: 100%;
+    padding: 0px;
+}
+.bx--side-nav {
+    border-right: 1px solid $ui-05;
+}
+
+.bx--side-nav.bx--side-nav--rail:not(.bx--side-nav--fixed):hover, .bx--side-nav--expanded{
+    width: 22rem;
+}
+
+.bx--side-nav{
+    max-width: 22rem;
+}
+
+.bx--side-nav.bx--side-nav--expanded ~ .bx--content {
+    margin-left: 22rem;
+}
+.bx--header-panel--expanded {
+    width: 24rem;
+}
+

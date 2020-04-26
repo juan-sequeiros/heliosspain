@@ -19,6 +19,12 @@
             <artifactId>ojdbc6</artifactId>
             <version>${oracle.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-ogm-embedded-driver</artifactId>
+            <version>3.1.2</version>
+        </dependency>
     </dependencies>
 
 </project>
