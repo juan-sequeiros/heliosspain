@@ -10,7 +10,6 @@ import java.time.Instant;
 import java.util.List;
 
 @Repository
-@Transactional
 public interface DoctorRepository extends Neo4jRepository<Doctor, Long> {
 
     List<Doctor> findByName(String name);
@@ -18,6 +17,10 @@ public interface DoctorRepository extends Neo4jRepository<Doctor, Long> {
 
     @Query("MATCH (d:Doctor)-[r:ATTEND]->(p:Paciente) where r.ts>={0} and r.ts<={1}  return d,r,p;")
     List<Doctor> findByTs(Instant start, Instant end);
+
+    @Transactional
+    @Override
+    Iterable<Doctor> findAll();
 
     @Query("MATCH (d:Doctor)-[r:ATTEND]->(p:Paciente),\n" +
             "     (d:Doctor)-[w:WORK_IN]->(h:Hospital)\n" +

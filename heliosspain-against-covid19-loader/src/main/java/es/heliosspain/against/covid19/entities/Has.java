@@ -1,4 +1,4 @@
-package es.heliosspain.against.covid19.relations;
+package es.heliosspain.against.covid19.entities;
 
 
 import es.heliosspain.against.covid19.entities.Hospital;

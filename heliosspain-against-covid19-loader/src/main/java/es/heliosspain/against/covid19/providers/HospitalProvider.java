@@ -9,6 +9,7 @@ import es.heliosspain.against.covid19.repositories.HospitalRepository;
 import es.heliosspain.against.covid19.service.IHospitalProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.print.Doc;
 import java.util.ArrayList;
@@ -27,9 +28,10 @@ public class HospitalProvider implements IHospitalProvider {
 
 
     @Override
+    @Transactional
     public NodeDto getAll() {
         ArrayList<Hospital> hospitalArrayList = (ArrayList<Hospital>) hospitalRepository.findAll();
-        ArrayList<Doctor> doctors = (ArrayList<Doctor>) doctorRepository.getPersonsWhoActAndDirect();
+        ArrayList<Doctor> doctors = (ArrayList<Doctor>) doctorRepository.findAll();
         return null;
     }
 }
