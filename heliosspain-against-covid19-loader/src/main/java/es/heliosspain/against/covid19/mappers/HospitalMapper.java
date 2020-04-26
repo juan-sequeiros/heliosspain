@@ -35,7 +35,7 @@ public class HospitalMapper implements IHospitalMapper{
                 NodeDto nodeDtoPaciente = new NodeDto();
 
                 pacienteDto.setName(attend.getPaciente().getName());
-                pacienteDto.setType(HealthPersonnelType.nurse);
+                pacienteDto.setType(HealthPersonnelType.patient);
                 pacienteDto.setId(attend.getPaciente().getId().toString());
                 nodeDtoPaciente.setData(pacienteDto);
                 nodeDtoPaciente.setGroup(GroupType.nodes);
