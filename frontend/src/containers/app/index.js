@@ -37,9 +37,19 @@ const App = () => {
         //postData('http://35.228.138.176:8080/heliosspain-against/mocks', {})
         //postData('http://localhost:4556/fetch', {})
         postData('http://35.228.138.176:8080/heliosspain-against/getAllDataHospital', {})
-            .then((data) => {
-                //console.log(data);
-                setNodes(data);
+            .then((nodes) => {
+                nodes = nodes.map((node) => {
+                    if (node.data && (node.data.type === "nurse" || node.data.type === "patient")) {
+                        var rnd = Math.random();
+                        if (rnd < 0.6) {
+                            node.data.type = "patient";
+                        } else {
+                            node.data.type = "nurse";
+                        }
+                    }
+                    return node;
+                })
+                setNodes(nodes);
                 //setNodes(elements);
             }).catch(() => {
                 setNodes(elements);

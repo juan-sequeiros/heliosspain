@@ -36,7 +36,7 @@ const Graph = ({ onSelectNode, nodes = [] }) => {
                     {
                         selector: 'node',
                         style: {
-                            'background-color': '#525252',
+                            'background-color': '#e0e0e0',
                             'label': function backgroundImage(node) {
                                 let text = node.data().name ? node.data().name : "";
                                 return `${text}`;
@@ -58,9 +58,9 @@ const Graph = ({ onSelectNode, nodes = [] }) => {
                         }
                     },
                     {
-                        selector: 'node[type = "paciente"]',
+                        selector: 'node[type = "patient"]',
                         style: {
-                            'background-color': '#525252',
+                            'background-color': '#e0e0e0',
                         }
                     },
                     {

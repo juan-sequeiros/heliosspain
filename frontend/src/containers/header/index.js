@@ -71,12 +71,13 @@ const HeaderApp = ({ selectedNode }) => {
                                 <span>{selectedNode.type}</span>
                             </fieldset>
                         </div>
-                        <div className="info__element">
+                        {selectedNode.type !== "patient" ? (<div className="info__element">
                             <fieldset className="bx--fieldset">
                                 <legend className="bx--label">Medical specialty:</legend>
                                 <span>{selectedNode.specialty}</span>
                             </fieldset>
-                        </div>
+                        </div>) : []}
+
                         <div className="info__element">
                             <fieldset className="bx--fieldset">
                                 <legend className="bx--label">COVID-19 analysis:</legend>
