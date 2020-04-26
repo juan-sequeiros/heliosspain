@@ -27,11 +27,13 @@ public class HospitalProvider implements IHospitalProvider {
     IHospitalMapper hospitalMapper;
 
 
+
+
     @Override
     @Transactional
-    public NodeDto getAll() {
+    public ArrayList<NodeDto> getAll() {
         ArrayList<Hospital> hospitalArrayList = (ArrayList<Hospital>) hospitalRepository.findAll();
         ArrayList<Doctor> doctors = (ArrayList<Doctor>) doctorRepository.findAll();
-        return null;
+        return hospitalMapper.ModelToDtoDoctors(doctors);
     }
 }

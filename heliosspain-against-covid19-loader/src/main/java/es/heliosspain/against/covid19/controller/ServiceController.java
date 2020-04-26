@@ -34,10 +34,9 @@ public class ServiceController {
 
 
 
-    @GetMapping(value="/getAllDataHospital",produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value="/getAllDataHospital",produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ArrayList<NodeDto> getAllDataHospital(@RequestParam(value = "id",required = false) Integer id){
-        iHospitalProvider.getAll();
-        return null;
+        return iHospitalProvider.getAll();
     }
 }

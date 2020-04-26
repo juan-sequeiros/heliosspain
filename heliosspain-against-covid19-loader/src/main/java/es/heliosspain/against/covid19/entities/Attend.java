@@ -28,6 +28,14 @@ public class Attend {
         this.ts = ts;
     }
 
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
+
     @Override
     public String toString() {
         return "Attend{" +

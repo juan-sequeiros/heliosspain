@@ -60,6 +60,8 @@ public class Doctor {
         this.workIns = workIns;
     }
 
+
+
     @Override
     public String toString() {
         return "Doctor{" +
