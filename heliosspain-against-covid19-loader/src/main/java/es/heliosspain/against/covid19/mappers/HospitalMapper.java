@@ -27,25 +27,25 @@ public class HospitalMapper implements IHospitalMapper{
                 doctorDto.setId(doctor.getId().toString());
                 doctorDto.setName(doctor.getName());
                 doctorDto.setSpecialty(SpecialtyType.MEDICA_GENERAL);
-                doctorDto.setType(HealthPersonnelType.DOCTOR);
+                doctorDto.setType(HealthPersonnelType.doctor);
                 doctorDto.setCovid19(new BigDecimal("10"));
                 nodeDtoDoctor.setData(doctorDto);
-                nodeDtoDoctor.setGroup(GroupType.NODES);
+                nodeDtoDoctor.setGroup(GroupType.nodes);
 
                 NodeDto nodeDtoPaciente = new NodeDto();
 
                 pacienteDto.setName(attend.getPaciente().getName());
-                pacienteDto.setType(HealthPersonnelType.NURSE);
+                pacienteDto.setType(HealthPersonnelType.nurse);
                 pacienteDto.setId(attend.getPaciente().getId().toString());
                 nodeDtoPaciente.setData(pacienteDto);
-                nodeDtoPaciente.setGroup(GroupType.NODES);
+                nodeDtoPaciente.setGroup(GroupType.nodes);
 
                 NodeDto nodeDtoRelacion = new NodeDto();
                 relacionDto.setSource(doctorDto.getId());
                 relacionDto.setTarget(pacienteDto.getId());
                 relacionDto.setId(doctorDto.getId()+pacienteDto.getId()+"attend");
                 nodeDtoRelacion.setData(relacionDto);
-                nodeDtoRelacion.setGroup(GroupType.EDGES);
+                nodeDtoRelacion.setGroup(GroupType.edges);
 
                 nodeDtos.add(nodeDtoDoctor);
                 nodeDtos.add(nodeDtoPaciente);

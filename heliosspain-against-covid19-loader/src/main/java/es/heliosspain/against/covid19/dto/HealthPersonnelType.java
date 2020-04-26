@@ -2,8 +2,8 @@ package es.heliosspain.against.covid19.dto;
 
 public enum HealthPersonnelType {
 
-    DOCTOR("DOCTOR"),
-    NURSE("NURSE");
+    doctor("DOCTOR"),
+    nurse("NURSE");
 
     HealthPersonnelType(String type) {
         this.type = type;

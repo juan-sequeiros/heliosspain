@@ -3,8 +3,8 @@ package es.heliosspain.against.covid19.dto;
 public enum GroupType {
 
 
-    NODES("nodes"),
-    EDGES("edges");
+    nodes("nodes"),
+    edges("edges");
 
     GroupType(String type) {
         this.type = type;
