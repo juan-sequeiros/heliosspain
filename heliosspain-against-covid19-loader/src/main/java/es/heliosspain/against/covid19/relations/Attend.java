@@ -15,16 +15,25 @@ public class Attend {
     private Long id;
 
     @StartNode
-    private Doctor person;
+    private Doctor doctor;
 
     @EndNode
     private Paciente paciente;
 
     private Instant ts;
 
-    public Attend(Doctor person, Paciente paciente, Instant ts) {
-        this.person = person;
+    public Attend(Doctor doctor, Paciente paciente, Instant ts) {
+        this.doctor = doctor;
         this.paciente = paciente;
         this.ts = ts;
+    }
+
+    @Override
+    public String toString() {
+        return "Attend{" +
+                "id=" + id +
+                ", paciente=" + paciente +
+                ", ts=" + ts +
+                '}';
     }
 }

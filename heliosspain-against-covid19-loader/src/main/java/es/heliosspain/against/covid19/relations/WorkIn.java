@@ -16,13 +16,13 @@ public class WorkIn {
     private Doctor person;
 
     @EndNode
-    private Hospital movie;
+    private Hospital hospital;
 
     private String property;
 
-    public WorkIn(Doctor person, Hospital movie, String property) {
+    public WorkIn(Doctor person, Hospital hospital, String property) {
         this.person = person;
-        this.movie = movie;
+        this.hospital = hospital;
         this.property = property;
     }
 }

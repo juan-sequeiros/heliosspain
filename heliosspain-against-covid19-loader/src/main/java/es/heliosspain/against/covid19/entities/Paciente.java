@@ -17,4 +17,13 @@ public class Paciente {
     public Paciente(String name) {
         this.name = name;
     }
+
+
+    @Override
+    public String toString() {
+        return "Paciente{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
