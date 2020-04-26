@@ -4,14 +4,16 @@ import es.heliosspain.against.covid19.util.Constants;
 import org.apache.catalina.authenticator.jaspic.AuthConfigFactoryImpl;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.web.DispatcherServletAutoConfiguration;
-import org.springframework.boot.builder.SpringApplicationBuilder;
+
+
+import org.springframework.boot.autoconfigure.web.servlet.DispatcherServletAutoConfiguration;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
-import org.springframework.boot.web.support.SpringBootServletInitializer;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.data.neo4j.repository.config.EnableNeo4jRepositories;
 import org.springframework.web.servlet.DispatcherServlet;
 
 import javax.security.auth.message.config.AuthConfigFactory;
@@ -21,7 +23,8 @@ import javax.security.auth.message.config.AuthConfigFactory;
 @PropertySources({
         @PropertySource("file:${HELIOS_HOME}/application.properties")
 })
-public class RootConfig extends SpringBootServletInitializer {
+@EnableNeo4jRepositories
+public class RootConfig{
 
     //Constants to set the log4j2 configuration location.
     public static final String LOGGING_CONFIG_PROPERTY = "logging.config";
@@ -38,37 +41,11 @@ public class RootConfig extends SpringBootServletInitializer {
         if (AuthConfigFactory.getFactory() == null) {
             AuthConfigFactory.setFactory(new AuthConfigFactoryImpl());
         }
+        initializeLog4j2ConfPath();
         SpringApplication.run(RootConfig.class);
     }
 
-    /**
-     * Default application building configuration
-     *
-     * @param application
-     * @return
-     */
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        initializeLog4j2ConfPath();
-        return application.sources(RootConfig.class);
-    }
 
-    /**
-     * We define a dispatcherServlet, that is needed in case of executing the WAR in a JBoss Server. It has not effect if using Tomcat.
-     *
-     * @return
-     */
-    @Bean
-    public DispatcherServlet dispatcherServlet() {
-        return new DispatcherServlet();
-    }
-
-    @Bean
-    public ServletRegistrationBean dispatcherServletRegistration() {
-        ServletRegistrationBean registration = new ServletRegistrationBean(dispatcherServlet(), "/*");
-        registration.setName(DispatcherServletAutoConfiguration.DEFAULT_DISPATCHER_SERVLET_REGISTRATION_BEAN_NAME);
-        return registration;
-    }
 
     /**
      * Method that allows us to read from a properties.

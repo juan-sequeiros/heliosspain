@@ -5,6 +5,7 @@ import es.heliosspain.against.covid19.service.DataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,7 +30,7 @@ public class ServiceController {
         return null;
     }
 
-    @GetMapping(value="/mocks",produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value="/mocks",produces = MediaType.APPLICATION_JSON_VALUE)
     public String getMock(@RequestParam(value = "id",required = false) Integer id){
 
         //Si no está presente, devuelve todos los datos .

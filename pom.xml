@@ -12,6 +12,7 @@
         <module>heliosspain-against-covid19-core</module>
         <module>heliosspain-against-covid19-data</module>
         <module>heliosspain-against-covid19-webapp</module>
+        <module>heliosspain-against-covid19-loader</module>
     </modules>
 
     <!-- Name of the project and versions used whithin the whole project -->
@@ -22,7 +23,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.boot.maven.plugin.version>1.5.4.RELEASE</spring.boot.maven.plugin.version>
         <version.jboss.bom.eap>6.4.14.GA</version.jboss.bom.eap>
-        <spring.platform.bom>Athens-SR5</spring.platform.bom>
+        <spring.platform.bom>Cairo-SR8</spring.platform.bom>
         <javax.ws.rs>2.0.1</javax.ws.rs>
         <redis.client.version>2.6.2</redis.client.version>
         <optimissa-platform.version>1.5.0</optimissa-platform.version>
