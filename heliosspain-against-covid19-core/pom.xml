@@ -23,6 +23,13 @@
             <artifactId>javax.ws.rs-api</artifactId>
             <version>${javax.ws.rs}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>${com.googlecode.json-simple}</version>
+        </dependency>
+
     </dependencies>
 
 </project>
