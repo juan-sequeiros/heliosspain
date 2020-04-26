@@ -1,7 +1,5 @@
 package es.heliosspain.against.covid19.entities;
 
-import es.heliosspain.against.covid19.relations.Attend;
-import es.heliosspain.against.covid19.relations.WorkIn;
 import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
