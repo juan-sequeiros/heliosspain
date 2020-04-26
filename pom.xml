@@ -34,6 +34,8 @@
         <itext.version>2.1.7</itext.version>
         <apache.poi.version>3.14</apache.poi.version>
         <oracle.version>11.2.0.2.0</oracle.version>
+        <com.googlecode.json-simple>1.1.1</com.googlecode.json-simple>
+
     </properties>
 
     <!--Manage the versions of the dependencies for this module and all its children modules -->
