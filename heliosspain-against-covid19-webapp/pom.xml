@@ -27,6 +27,12 @@
             <artifactId>heliosspain-against-data</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>es.heliosspain.against.covid19</groupId>
+            <artifactId>heliosspain-against-loader</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         <dependency>
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>

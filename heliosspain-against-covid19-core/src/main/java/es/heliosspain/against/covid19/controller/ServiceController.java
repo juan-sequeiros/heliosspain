@@ -2,6 +2,7 @@ package es.heliosspain.against.covid19.controller;
 
 import es.heliosspain.against.covid19.service.DataService;
 
+import es.heliosspain.against.covid19.service.IHospitalProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,9 @@ public class ServiceController {
     private static Logger logger = LogManager.getLogger(ServiceController.class.getName());
 
     private DataService dataService;
+
+    @Autowired
+    IHospitalProvider iHospitalProvider;
 
     @Autowired
     public ServiceController(DataService dataService) {
@@ -42,5 +46,11 @@ public class ServiceController {
             logger.info(" requested mock: " + id);
             return " requested mock: " + id;
         }
+    }
+
+    @GetMapping(value="/getAllDataHospital",produces = MediaType.APPLICATION_JSON_VALUE)
+    public String getAllDataHospital(@RequestParam(value = "id",required = false) Integer id){
+        iHospitalProvider.getAll();
+        return null;
     }
 }

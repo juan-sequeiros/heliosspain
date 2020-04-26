@@ -21,7 +21,12 @@
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-neo4j</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>es.heliosspain.against.covid19</groupId>
+			<artifactId>heliosspain-against-core</artifactId>
+			<version>${project.version}</version>
+			<scope>compile</scope>
+		</dependency>
 
 
 	</dependencies>
