@@ -3,10 +3,14 @@ package es.heliosspain.against.covid19.repositories;
 import es.heliosspain.against.covid19.entities.Doctor;
 import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
 import java.util.List;
 
+@Repository
+@Transactional
 public interface DoctorRepository extends Neo4jRepository<Doctor, Long> {
 
     List<Doctor> findByName(String name);

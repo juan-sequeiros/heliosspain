@@ -1,17 +1,17 @@
 package es.heliosspain.against.covid19.controller;
 
+import es.heliosspain.against.covid19.dto.NodeDto;
 import es.heliosspain.against.covid19.service.DataService;
 
 import es.heliosspain.against.covid19.service.IHospitalProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
+
+import java.util.ArrayList;
 
 @RestController
 public class ServiceController {
@@ -49,7 +49,8 @@ public class ServiceController {
     }
 
     @GetMapping(value="/getAllDataHospital",produces = MediaType.APPLICATION_JSON_VALUE)
-    public String getAllDataHospital(@RequestParam(value = "id",required = false) Integer id){
+    @ResponseBody
+    public ArrayList<NodeDto> getAllDataHospital(@RequestParam(value = "id",required = false) Integer id){
         iHospitalProvider.getAll();
         return null;
     }
