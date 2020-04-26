@@ -3,20 +3,13 @@ import CytoscapeComponent from 'react-cytoscapejs';
 import {
     Content,
 } from "carbon-components-react/lib/components/UIShell";
-import userSvg from "@fortawesome/fontawesome-free/svgs/solid/user-md.svg"
 
 
 const Graph = ({ onSelectNode, nodes = [] }) => {
     let cyRef = React.createRef();
 
     const layout = {
-        name: 'concentric',
-        concentric: function (node) {
-            return node.degree();
-        },
-        levelWidth: function (nodes) {
-            return 2;
-        }
+        name: 'random',
     };
 
     useEffect(() => {
@@ -43,32 +36,42 @@ const Graph = ({ onSelectNode, nodes = [] }) => {
                     {
                         selector: 'node',
                         style: {
-                            'background-color': '#30c9bc',
+                            'background-color': '#e0e0e0',
+                            'label': function backgroundImage(node) {
+                                let text = node.data().name ? node.data().name : "";
+                                return `${text}`;
+                            },
+
                         }
                     },
                     {
                         selector: 'node[type = "doctor"]',
                         style: {
                             'background-color': '#0f62fe',
+
                         }
                     },
                     {
-                        selector: 'node[type = "enfermera"]',
+                        selector: 'node[type = "nurse"]',
                         style: {
                             'background-color': '#78a9ff',
                         }
                     },
                     {
-                        selector: 'node[type = "paciente"]',
+                        selector: 'node[type = "patient"]',
                         style: {
-                            'background-color': '#525252',
+                            'background-color': '#e0e0e0',
                         }
                     },
                     {
-                        selector: 'node[covid19 > 20]',
+                        selector: 'node[covid19 > 9]',
                         style: {
                             'border-width': 2,
-                            'border-color': '#ba1b23'
+                            'border-color': '#ba1b23',
+                            "color": "red",
+                            'label': function backgroundImage(node) {
+                                return `${node.data().name} covid-19`;
+                            },
                         }
                     },
                     {

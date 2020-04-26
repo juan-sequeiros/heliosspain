@@ -2,6 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.6.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
     <groupId>es.heliosspain.against.covid19</groupId>
     <artifactId>heliosspain-against</artifactId>
     <packaging>pom</packaging>
@@ -9,112 +16,41 @@
 
     <!-- Child modules -->
     <modules>
-        <module>heliosspain-against-covid19-core</module>
-        <module>heliosspain-against-covid19-data</module>
-        <module>heliosspain-against-covid19-webapp</module>
+        <module>heliosspain-against-covid19-loader</module>
     </modules>
 
-    <!-- Name of the project and versions used whithin the whole project -->
     <properties>
-        <project.name>heliosspain-against-covid19</project.name>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.boot.maven.plugin.version>1.5.4.RELEASE</spring.boot.maven.plugin.version>
-        <version.jboss.bom.eap>6.4.14.GA</version.jboss.bom.eap>
-        <spring.platform.bom>Athens-SR5</spring.platform.bom>
-        <javax.ws.rs>2.0.1</javax.ws.rs>
-        <redis.client.version>2.6.2</redis.client.version>
-        <optimissa-platform.version>1.5.0</optimissa-platform.version>
-        <jasperreports.version>6.1.0</jasperreports.version>
-        <commons-beanutils.version>1.9.0</commons-beanutils.version>
-        <commons-collections.version>3.2.1</commons-collections.version>
-        <commons-digester.version>2.1</commons-digester.version>
-        <commons-logging.version>1.1.1</commons-logging.version>
-        <itext.version>2.1.7</itext.version>
-        <apache.poi.version>3.14</apache.poi.version>
-        <oracle.version>11.2.0.2.0</oracle.version>
-        <com.googlecode.json-simple>1.1.1</com.googlecode.json-simple>
-
+        <java.version>8</java.version>
     </properties>
 
-    <!--Manage the versions of the dependencies for this module and all its children modules -->
-    <dependencyManagement>
-        <dependencies>
-            <!-- Spring dependencies. -->
-            <dependency>
-                <groupId>io.spring.platform</groupId>
-                <artifactId>platform-bom</artifactId>
-                <version>${spring.platform.bom}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
-    <!-- Common dependencies for the whole project. -->
     <dependencies>
-        <!-- Spring starter web-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-logging</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <!-- Spring starter logging-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-log4j2</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
+            <artifactId>spring-boot-starter-data-neo4j</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
-
     </dependencies>
 
     <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.6.1</version>
-                    <configuration>
-                        <source>${maven.compiler.source}</source>
-                        <target>${maven.compiler.source}</target>
-                        <encoding>${project.build.sourceEncoding}</encoding>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-deploy-plugin</artifactId>
-                    <version>2.8.2</version>
-                    <configuration>
-                        <updateReleaseInfo>true</updateReleaseInfo>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-release-plugin</artifactId>
-                    <version>2.5.3</version>
-                    <configuration>
-                        <preparationGoals>clean deploy</preparationGoals>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
     </build>
+
 
 
 </project>
